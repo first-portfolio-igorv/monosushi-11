@@ -1,0 +1,281 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixin";
+@import "../../shared/styles/variables";
+main{
+    width: 100%;
+    margin:95px 0px;
+    padding-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    @include respond(tablet){
+        margin: 60px 0px 0px;
+    }
+    .title{
+        padding-top: 20px;
+        display:flex;
+        justify-content: space-around;
+        span{
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            border-top: 6px solid $mainBlue;
+            @include respond(mobile){
+                font-size: 32px;
+            }
+        }
+    }
+    .info{
+        width:100%;
+        .top-block{
+            width: 58%;
+            margin: auto;
+            @include respond(tablet){
+                width: 800px;
+                padding-left: 20px;
+            }
+            @include respond(tabletS){
+                width: 700px;
+            }
+            @include respond(mobile){
+                width: 540px;
+            }
+            @include respond(mobileS){
+                width: 100%;
+            }
+            .title{
+                font-size: 34px;
+                font-weight: bold;
+                margin-bottom: 25px;
+                @include respond(mobile){
+                    font-size: 26px;
+                }
+            }
+            p{
+                font-size: 18px;
+                margin-bottom: 25px;
+                line-height: 25px;
+                @include respond(mobile){
+                    font-size: 16px;
+                }
+            }
+            ul{
+                margin-left: 30px;
+                li{
+                    font-size: 18px;
+                    margin-top: 8px;
+                    color: black;
+                    position: relative;
+                    @include respond(tabletS){
+                        font-size: 16px;
+                    }
+                    &::after{
+                        content: "";
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 100%;
+                        border: 1.5px solid $mainBlue;
+                        position: absolute;
+                        left: -30px;
+                        top:30%;
+                    }
+                    &::before{
+                        content: "";
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 100%;
+                        background-color: $mainBlue;
+                        position: absolute;
+                        left: -26px;
+                        top: 45%;
+                    }
+                }
+            }
+        }
+        .midle-block{
+            width: 100%;
+            margin-top:120px;
+            @include respond(mobile){
+                margin-top: 60px;
+            }
+            .info-block{
+                display: flex;
+                justify-content: center;
+                margin-bottom: 90px;
+                flex-wrap: wrap;
+                @include respond(mobileS){
+                    margin-bottom: 50px;
+                }
+                img{
+                    display: block;
+                    width: 31%;
+                    margin: 0px 20px;
+                    border-radius: 15px;
+                    @include respond(tablet){
+                        width: 370px;
+                        height: 370px;
+                    }
+                    @include respond(tabletS){
+                        width: 690px;
+                        height: 690px;
+                    }
+                    @include respond(mobile){
+                        width: 510px;
+                        height: 510px;
+                    }
+                    @include respond(mobileS){
+                        width: 95%;
+                        height: 95%;
+                    }
+                }
+                .description{
+                    width: 30%;
+                    margin:0px 20px;
+                    @include respond(tablet){
+                        width: 370px;
+                    }
+                    @include respond(tabletS){
+                        width: 690px;
+                    }
+                    @include respond(mobile){
+                        width: 510px;
+                    }
+                    @include respond(mobileS){
+                        width: 95%;
+                    }
+                    .title{
+                        font-size: 34px;
+                        font-weight: bold;
+                        padding-top: 40px;
+                        margin-bottom: 25px;
+                        @include respond(tablet){
+                            font-size: 30px;
+                        }
+                        @include respond(tabletS){
+                            display: block;
+                        }
+                    }
+                    p{
+                        font-size: 18px;
+                        line-height: 25px;
+                        @include respond(tabletS){
+                            margin-bottom: 20px;
+                        }
+                    }
+                    b{
+                        font-weight: bold;
+                    }
+                }
+            }
+            .margin{
+                @include respond(tabletS){
+                    margin-bottom: 50px;
+                }  
+            }
+        }
+        .bottom-block{
+            width: 70%;
+            margin:auto;
+            @include respond(tablet){
+                width: 800px;
+            }
+            @include respond(tabletS){
+                width: 90%;
+            }
+            .title{
+                font-size: 34px;
+                font-weight: bold;
+                margin-bottom: 50px;
+                @include respond(mobile){
+                    font-size: 26px;
+                }
+            }
+            .advantages{
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                &__block{
+                    width: 50%;
+                    padding: 0px 50px;
+                    margin-bottom: 30px;
+                    @include respond(mobileS){
+                        width: 100%;
+                    }
+                    .title{
+                        font-size: 20px;
+                        font-weight: bold;
+                        margin-bottom: 10px;
+                    }
+                    .img{
+                        width: 85px;
+                        height: 85px;
+                        margin: auto;
+                        background-color: $mainBlue;
+                        border-radius: 10px;
+                        display: flex;
+                        justify-content: center;
+                    }
+                    p{
+                        font-size: 18px;
+                        text-align: center;
+                    }
+                }
+            }
+            .questions{
+                width: 80%;
+                margin: auto;
+                @include respond(tabletS){
+                    width: 100%;
+                }
+                @include respond(mobile){
+                    width: 510px;
+                }
+                @include respond(mobileS){
+                    width: 95%;
+                }
+                .border{
+                    border-top: 1.3px solid lightgray;
+                }
+                .question,.active{
+                    border-bottom: 1.3px solid lightgray;
+                    max-height: 93px;
+                    overflow: hidden;
+                    transition: all 0.5s linear;
+                    &:hover{
+                        cursor:pointer;
+                    }
+                    .hidden-block{
+                        width: 100%;
+                        font-size: 18px;
+                        ul{
+                            list-style-type: disc;
+                        }
+                        p{
+                            margin-bottom: 20px;
+                        }
+                        ul{
+                            list-style-type: disc;
+                            li{
+                                margin: 23px;
+                            }
+                        }
+                        
+                    }
+                    .title{
+                        font-size: 20px;
+                        font-weight: bold;
+                        padding: 32px 0px;
+                        margin: 0px;
+                        display: flex;
+                        justify-content: left;
+                        @include respond(mobileS){
+                            padding: 15px 0px 40px;
+                        }
+                    }
+                }
+                .active{
+                    transition-delay: 0.4s;
+                    max-height: 600px;
+                }
+            }
+        }
+    }
+}        

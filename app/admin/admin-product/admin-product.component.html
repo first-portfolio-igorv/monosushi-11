@@ -1,0 +1,45 @@
+<div class="product">
+    <button class="add-button" (click)="addBlock()">ДОДАТИ ТОВАР</button>
+    <div class="add-block" *ngIf="addBlockCheck">
+        <select name="" id="" class="text" (change)="changeCategory(category)" #category>
+            <option [ngValue]="category" *ngFor="let info of categoryStorage">{{info.name}}</option>
+        </select>
+        <input type="text" name="" id="" class="text" placeholder="назва" [(ngModel)]="name">
+        <input type="text" name="" id="" class="text" placeholder="шлях" [(ngModel)]="path">
+        <input type="text" name="" id="" class="text components" placeholder="інгрідієнти" [(ngModel)]="components">
+        <input type="text" name="" id="" class="text" placeholder="ціна" [(ngModel)]="price">
+        <input type="text" name="" id="" class="text" placeholder="вага" [(ngModel)]="weight">
+        <input type="file" name="" id="" class="text file" (change)="upload($event)">
+        <button class="add text" (click)="add()" *ngIf="!saveCheck">Додати</button>
+        <button class="add text" (click)="save()" *ngIf="saveCheck">Зберегти</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td class="num">№</td>
+                <td class="category">Категорія</td>
+                <td class="name">Назва</td>
+                <td class="components">Інгрідієнти</td>
+                <td class="weight">Вага</td>
+                <td class="price">Ціна</td>
+                <td class="img">Картинка</td>
+                <td class="action">Дії</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let info of productStorage; index as id">
+                <td class="num">№{{id+1}}</td>
+                <td class="category">{{info.category}}</td>
+                <td class="name">{{info.name}}</td>
+                <td class="components">{{info.components}}</td>
+                <td class="weight">{{info.weight}} г</td>
+                <td class="price">{{info.price}} грн</td>
+                <td class="img"><img [src]="info.img" alt=""></td>
+                <td class="action">
+                    <h2 (click)="edit(info)">Редагувати</h2>
+                    <h2 (click)="delete(info)">Видалити</h2>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

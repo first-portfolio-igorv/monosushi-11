@@ -1,0 +1,22 @@
+@mixin respond ($screen){
+    @if $screen == tablet{
+        @media only screen and (max-width:1240px){
+            @content;
+        }
+    }
+    @if $screen == mobile{
+        @media only screen and (max-width:780px){
+            @content;
+        }
+    }
+    @if $screen == mobileS{
+        @media only screen and (max-width:600px){
+            @content;
+        }
+    }
+    @if $screen == tabletS{
+        @media only screen and (max-width:990px){
+            @content;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+<div class="discounts" *ngIf="discountCheck">
+    <button class="add" (click)="AddBlock()">ДОДАТИ АКЦІЮ</button>
+    <div class="add-block" *ngIf="addBlock">
+        <input type="text" name="" id="" class="text" placeholder="Назва" [(ngModel)]="name">
+        <input type="text" name="" id="" class="text" placeholder="Заголовок" [(ngModel)]="title">
+        <textarea name="" id="" cols="30" rows="10"  class="text description" placeholder="Опис" [(ngModel)]="description"></textarea>
+        <div class="upload-block text">
+            <input type="file" name="" id="" (change)="upload($event)">
+        </div>
+    <button class="confirm add" (click)="addDiscount()" *ngIf="!saveButtonCheck">Підтвердити</button>
+    <button class="confirm add" (click)="saveDiscountChanges()" *ngIf="saveButtonCheck">Зберегти</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>Дата</td>
+                <td>Назва</td>
+                <td>Заголовок</td>
+                <td>Опис</td>
+                <td>Картинка</td>
+                <td>Дії</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let info of discountStorage">
+                <td class="date">12.2022</td>
+                <td class="name">{{info.name | slice:0:20}}<span *ngIf="info.name.length>40">...</span></td>
+                <td>{{info.title| slice:0:20}}<span *ngIf="info.title.length>40">...</span></td>
+                <td class="description">{{info.description | slice:0:40}}<span *ngIf="info.description.length>40">...</span></td>
+                <td class="img"><img [src]="info.path" alt=""></td>
+                <td class="action">
+                    <h2 (click)="editDiscountBlock(info)">Редагувати</h2>
+                    <h2 (click)="deleteDiscount(info)">Видалити</h2>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

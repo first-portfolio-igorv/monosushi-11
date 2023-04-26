@@ -1,0 +1,56 @@
+<div class="home-block">
+    <div class="slider">
+        <div class="discount-list" on>
+            <img src="../../../assets/5-tyj-v-podarunok-.jpg" alt="">
+            <img src="../../../assets/den-narodzhennya-.jpg" alt="">
+            <img src="../../../assets/fotomarafon-.jpg" alt="">
+            <img src="../../../assets/rol-tyzhnya.jpg" alt="">
+            <img src="../../../assets/monokombo.jpg" alt="">
+        </div>
+    </div>
+    <div class="description">
+        <div class="description__info">
+            <img src="../../../assets/mn-delivery-img.svg" alt="" width="135px">
+            <button>ЗОНИ ДОСТАВКИ</button>
+        </div>
+        <div class="description__info description__border">
+            <img src="../../../assets/mono-supermen.svg" alt="" width="100px">
+            <span>Середній час доставки в зеленій зоні <span class="bold">00:43:00</span></span>
+        </div>
+        <div class="description__info last">
+            <img src="../../../assets/mono-bonus.svg" alt="" width="75px" class="img">
+            <span>Наш графік роботи працюємо з <span class="bold">11:00</span> до<span class="bold"> 22:30</span></span>
+        </div>
+    </div>
+    <div class="title"><span>Продукти</span></div>
+    <div class="products">
+        <div class="product-category-list" >
+            <div [ngClass]="{'product-category-active': category==1,'product-category': category!=1}" (click)="activate($event)" id="1">Всі</div>
+            <div [ngClass]="{'product-category-active': category==2,'product-category': category!=2}" (click)="activate($event)" id="2">Філадельфія</div>
+            <div [ngClass]="{'product-category-active': category==3,'product-category': category!=3}" (click)="activate($event)" id="3">Каліфорнія</div>
+            <div [ngClass]="{'product-category-active': category==4,'product-category': category!=4}" (click)="activate($event)" id="4">Запечені</div>
+            <div [ngClass]="{'product-category-active': category==5,'product-category': category!=5}" (click)="activate($event)" id="5">фірмові</div>
+            <div [ngClass]="{'product-category-active': category==6,'product-category': category!=6}" (click)="activate($event)" id="6">Макі</div>
+            <div [ngClass]="{'product-category-active': category==7,'product-category': category!=7}" (click)="activate($event)" id="7">Преміум</div>
+        </div>
+        <div class="product-list">
+            <div class="product" *ngFor="let info of productStorage">
+                <div class="img"><img [src]="info.img" alt="" [routerLink]="[ '/product-info/'+info.category,info.id ]"></div>
+                <div class="info">
+                    <span class="name" [routerLink]="[ '/product-info/'+info.category,info.id ]">{{info.name}}</span><br>
+                    <span class="components">{{info.components}}</span>
+                    <span class="weight">{{info.weight}}г</span>
+                </div>
+                <div class="purchase-block">
+                    <span class="price">{{info.price}} <span>грн</span></span>
+                    <div class="count-block">
+                        <div class="minus" (click)="fCount(info,false)">-</div>
+                        <input class="num" [(ngModel)]="info.count">
+                        <div class="plus" (click)="fCount(info,true)">+</div>
+                    </div>
+                    <button class="order" (click)="addToBasket(info)">ЗАМОВИТИ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

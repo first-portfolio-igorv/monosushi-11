@@ -1,0 +1,248 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixin";
+@import "../../shared/styles/variables";
+footer{
+    width: 100%;
+    height: 181px;
+    border-top: 2px solid $mainBlue;
+    margin: 90px 0px 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    @include respond(tablet){
+        height: 146px;
+        margin-bottom: 60px;
+    }
+    @include respond(tabletS){
+        margin-top: 30px;
+        height: 202px;
+    }
+    @include respond(mobile){
+        height: 403px;
+    }
+    .footer-top{
+        width: 100%;
+        height: 107px;
+        padding: 20px 35px;
+        display: flex;
+        justify-content: space-between;
+        @include respond(tablet){
+            height: 92px;
+            padding: 15px;
+        }
+        @include respond(tabletS){
+            height: 149px;
+            flex-wrap:wrap;
+            justify-content: space-around;
+        }
+        @include respond(mobile){
+            height: 328px;
+            flex-direction: column;
+            margin: 0px auto;
+        }
+        .socials{
+            display: none;
+            width: 80px;
+            height: 35px;
+            justify-content: space-between;
+            margin: 0px auto;
+            @include respond(mobile){
+                display: flex;
+            }
+            span{
+                font-size: 16px;
+                margin-right: 10px;
+                @include respond(tablet){
+                    font-size: 12px;
+                }
+            }
+            .social{
+                width: 35px;
+                height: 35px;
+                border-radius: 10px;
+                background-color: $mainBlue;
+                img{
+                    display: block;
+                    margin:25% auto;
+                }
+            }
+        }
+        &__logo{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            @extend %focus;
+            @include respond(mobile){
+                margin:0px auto
+            }
+        }
+        &__menu{
+            width: 237px;
+            display: flex;
+            justify-content: space-between;
+            .menu-category{
+                margin: auto 0px;
+                @extend %focus;
+                cursor: pointer;
+            }
+            @include respond(tablet){
+                width: 174px;
+                font-size:14px;
+            }
+            @include respond(mobile){
+                margin: 0px auto -20px;
+            }
+        }
+        &__info{
+            width: 544px;
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            font-size: 14px;
+            @include respond(tabletS){
+                margin-top: 15px;
+                width:100%;
+            }
+            @include respond(mobile){
+                flex-direction: column;
+            }
+            h3{
+                font-weight: bold;
+                @include respond(mobile){
+                    margin-top: 10px;
+                }
+            }
+            span{
+                display: block;
+                font-weight: 100;
+                margin-top: 5px;
+                @include respond(mobile){
+                    margin: 0px auto;
+                }
+                @include respond(mobile){
+                    font-size: 14px;
+                    margin-top: 5px;
+                }
+            }
+            .block{
+                width: 30%;
+                @include respond(tabletS){
+                    width: 25%;
+                }
+                @include respond(mobile){
+                    width: 100%;
+                }
+            }
+            .delivery-address{
+                width: 40%;
+                @include respond(tabletS){
+                    width:25%;
+                }
+                @include respond(mobile){
+                    width:100%
+                }
+            }
+        }
+
+    }
+    .footer-bottom{
+        width: 100%;
+        height: 49px;
+        margin-bottom: 20px;
+        padding:0px 35px;
+        display: flex;
+        justify-content: space-between;
+        @include respond (tablet){
+            height:35px;
+            margin-bottom: 15px;
+            padding:0px 15px;
+        }
+        @include respond (mobile){
+            height:75px;
+            flex-wrap: wrap;
+        }
+    }
+    span{
+        display: block;
+        margin: auto 0px;
+        @include respond(tablet){
+            font-size: 12px;
+        }
+    }
+    .mobileSpan{
+        display: none;
+        @include respond(mobile){
+            display: block;
+        }
+    }
+    .tabletSpan{
+        @include respond(mobile){
+            display: none;
+        }
+    }
+    .pay-metods{
+        width: 217px;
+        height: 39px;
+        margin: auto 0px;
+        display: flex;
+        justify-content: space-between;
+        @include respond(tablet){
+            width: 178px;
+            height: 33px;
+        }
+        @include respond(mobile){
+            width: 100%;
+            height: 33px;
+            justify-content:center;
+        }
+        .card{
+            width: 69px;
+            height: 100%;
+            border-radius: 10px;
+            border: 1px solid lightgray;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            @include respond(tablet){
+                width: 56px;
+            }
+        }
+    }
+    b{
+        font-size: 17px;
+        font-weight: bold;
+        @include respond(tablet){
+            font-size: 15px;
+        }
+    }
+    .socials{
+        width: 245px;
+        display: flex;
+        justify-content: space-between;
+        @include respond(tablet){
+            width: 190px;
+        }
+        @include respond(mobile){
+            display: none;
+        }
+        span{
+            font-size: 16px;
+            margin-right: 10px;
+            @include respond(tablet){
+                font-size: 12px;
+            }
+        }
+        .social{
+            width: 49px;
+            height: 49px;
+            border-radius: 10px;
+            background-color: $mainBlue;
+            @include respond(tablet){
+                width: 35px;
+                height: 35px;
+            }
+            img{
+                display: block;
+                margin:25% auto;
+            }
+        }
+    }
+}

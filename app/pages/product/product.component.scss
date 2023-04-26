@@ -1,0 +1,176 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixin";
+@import "../../shared/styles/variables";
+
+main {
+    width: 100%;
+    margin: 95px 0px;
+    padding-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: space-around;
+
+    span {
+        padding-top: 20px;
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        border-top: 6px solid $mainBlue;
+    }
+}
+
+.products {
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    .product-category-list {
+        display: flex;
+
+        .product-category,
+        .product-category-active {
+            width: 14.2%;
+            height: 80px;
+            border: 1px solid lightgray;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding-top: 25px;
+        }
+
+        .product-category-active {
+            border-top: 5px solid $mainBlue;
+            border-bottom: 1px solid transparent;
+            padding-top: 21px;
+        }
+    }
+
+    .product-list {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .product {
+            width: 355px;
+            height: 460px;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            padding: 0px 10px;
+            margin-top: 30px;
+            @extend %border;
+
+            .info {
+
+                .name {
+                    font-size: 25px;
+                    font-weight: bold;
+                    margin: 0px auto 30px;
+                    @extend %focus;
+                }
+
+                .components {
+                    font-size: 18px;
+                    float: left;
+                    max-width: 260px;
+                    height: 70px;
+                }
+
+                .weight {
+                    float: right;
+                    margin-left: 10px;
+                    font-size: 20px;
+                    color: rgb(73, 73, 73);
+                    font-weight: bold;
+                }
+            }
+
+            .purchase-block {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+
+                .price {
+                    font-size: 20px;
+                    font-weight: bold;
+                    padding: 10px;
+
+                    span {
+                        font-weight: 400;
+                    }
+                }
+
+                .count-block {
+                    width: 120px;
+                    height: 55px;
+                    border: 1.5px solid lightgrey;
+                    border-radius: 10px;
+                    display: flex;
+                    justify-content: space-around;
+                    padding-top: 5px;
+                    font-size: 22px;
+                    font-weight: bold;
+                    position: absolute;
+                    left: 50%;
+                    transform: translate(-50%);
+
+                    .minus,
+                    .plus {
+                        width: 30px;
+                        height: 43px;
+                        border-radius: 10px;
+                        @extend %background-color;
+                        transition-duration: 0.2s;
+                        text-align: center;
+                        padding-top: 5px;
+                    }
+
+                    .num {
+                        margin-top: 5px;
+                        width: 30px;
+                        height: 30px;
+                        font-size: 20px;
+                        font-weight: bold;
+                        padding-left: 7px;
+                        margin-top: 8px;
+                        border:none;
+                        background-color: transparent;
+                        &:focus{
+                            border: none;
+                            outline: none;
+                        }
+                    }
+                }
+
+                .order {
+                    width: 100px;
+                    height: 55px;
+                    background-color: $mainBlue;
+                    border-radius: 10px;
+                    font-weight: bold;
+                    border: 2px solid $mainBlue;
+                    cursor: pointer;
+                    transition-duration: 0.5s;
+                    @extend %focus;
+
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+            }
+            .img{
+                width: 100%;
+                height: 240px;
+                display: flex;
+                justify-content: space-between;
+                img {
+                    margin: auto;
+                    width: 100%;
+                    max-height: 240px;
+                    background-size: contain;
+                    @extend %focus;
+                }
+            }
+            
+        }
+    }
+}

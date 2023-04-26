@@ -1,0 +1,11 @@
+<main>
+    <div class="category-name"><span>Акції</span> </div>
+</main>
+<div class="discounts">
+    <div class="discount" *ngFor="let info of discountStorage">
+        <div class="img"  [routerLink]="[ '/discount-info/'+info.id ]"><img [src]="info.path" alt=""></div>
+        <span class="name">{{info.name}}</span>
+        <hr>
+        <button [routerLink]="[ '/discount-info/'+info.id ]">ДІЗНАТИСЬ БІЛЬШЕ</button>
+    </div>
+</div>

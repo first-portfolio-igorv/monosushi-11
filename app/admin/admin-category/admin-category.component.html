@@ -1,0 +1,36 @@
+<div class="categories">
+    <button class="add" (click)="AddBlock()">ДОДАТИ КАТЕГОРІЮ</button>
+    <div class="add-block" *ngIf="addBlock">
+        <input type="text" name="" id="" class="text" placeholder="Назва" [(ngModel)]="name">
+        <input type="text" name="" id="" class="text" placeholder="Шлях" [(ngModel)]="title">
+        <div class="upload-block text">
+            <input type="file" name="" id="" (change)="upload($event)">
+        </div>
+    <button class="confirm add" (click)="addCategory()" *ngIf="!saveButtonCheck">Підтвердити</button>
+    <button class="confirm add" (click)="saveCategoryChanges()" *ngIf="saveButtonCheck">Зберегти</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>№</td>
+                <td>Назва</td>
+                <td>Шлях</td>
+                <td>Картинка</td>
+                <td>Дії</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let info of categoryStorage">
+                <td class="num">№{{info.id}}</td>
+                <td>{{info.name}}</td>
+                <td class="description path">{{info.path}}</td>
+                <td class="img"><img [src]="info.imagePath" alt=""></td>
+                <td class="action">
+                    <h2 (click)="editCategoryBlock(info)">Редагувати</h2>
+                    <h2 (click)="deleteCategory(info)">Видалити</h2>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

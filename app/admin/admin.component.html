@@ -1,0 +1,20 @@
+<main>
+    <div class="function-list">
+        <div [ngClass]="{'active': discountCheck}" class="function-list__category" (click)="discount()" [routerLink]="[ 'admin-discount' ]" routerLinkActive="active">
+            <h1 >Акції</h1>
+        </div>
+        <div [ngClass]="{'active': categoryCheck}" class="function-list__category" (click)="category()" [routerLink]="[ 'admin-category' ]" routerLinkActive="active">
+            <h1>Категорії</h1>
+        </div>
+        <div [ngClass]="{'active': goodsCheck}" class="function-list__category" (click)="goods()" [routerLink]="[ 'admin-product' ]" routerLinkActive="active">
+            <h1>Товари</h1>
+        </div>
+        <div [ngClass]="{'active': orderCheck}" class="function-list__category" (click)="order()"[routerLink]="[ 'admin-order' ]" routerLinkActive="active">
+            <h1>Замовлення</h1>
+        </div>
+        <button class="exit" (click)="logout()">ВИХІД</button>
+    </div>
+    <div class="function-info">
+        <router-outlet></router-outlet>
+    </div>
+</main>

@@ -1,0 +1,19 @@
+<div class="product-info">
+    <div class="path-line"><span [routerLink]="[ '/home' ]">Головна</span> <span class="point">.</span> <span [routerLink]="[ '/product/'+productInfo.category ]">{{productInfo.category}}</span> <span class="point">.</span> {{productInfo.name}}</div>
+    <div class="product">
+        <div class="img"><img [src]="productInfo.img" alt=""></div>
+        <div class="info">
+            <span class="name">{{productInfo.name}}</span><br>
+            <span class="components"><span>Склад: </span> {{productInfo.components}}</span><br>
+            <span class="weight"><span>Вага: </span>{{productInfo.weight}} г</span>
+            <div class="purchase-block">
+                <span class="price"><span>{{price * this.productInfo.count}}грн</span></span>
+                <div class="count-block">
+                    <div class="minus" (click)="fCount(productInfo,false)">-</div>
+                    <input class="num" [(ngModel)]="this.productInfo.count" (change)="countChange()">
+                    <div class="plus" (click)="fCount(productInfo,true)">+</div>
+                </div>
+                <button class="order" (click)="addToBasket(productInfo)">ЗАМОВИТИ</button>
+            </div>
+        </div>
+    </div>

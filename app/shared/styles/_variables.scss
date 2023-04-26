@@ -1,0 +1,125 @@
+@import '../styles/mixin';
+$mainBlue:#B5D8F7;
+$green:#27AE60;
+$yellow:#F2C94C;
+%border{
+    border: 2px solid transparent;
+    border-radius: 8px;
+    &:hover{
+        cursor: pointer;
+        animation: activeBorder 400ms linear forwards;
+    }
+    @extend %focus;
+}
+%focus{
+    &:focus{
+        outline: none;
+    }
+}
+%border-color{
+    border: 2px solid transparent;
+    &:hover{
+       border: 2px solid $mainBlue; 
+       border-radius: 7px;
+    } 
+    @extend %focus;
+}
+%background-color{
+    &:hover{
+       background-color: $mainBlue;
+    } 
+    @extend %focus;
+}
+%slider{
+    position: relative;
+    animation: slider 40s infinite ;
+    animation-delay: 5s;
+    @include respond(tabletS){
+        animation: sliderS 40s infinite ;
+        animation-delay: 5s;
+    }
+}
+@keyframes activeBorder{
+    25%{
+        border-left-color: transparent;
+        border-top-color: $mainBlue;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+    }
+    50%{
+        border-left-color: transparent;
+        border-top-color: $mainBlue;
+        border-right-color: $mainBlue;
+        border-bottom-color: transparent;
+    }
+    75%{
+        border-left-color: transparent;
+        border-top-color: $mainBlue;
+        border-right-color: $mainBlue;
+        border-bottom-color: $mainBlue;
+    }
+    100%{
+        border-left-color: $mainBlue;
+        border-top-color: $mainBlue;
+        border-right-color: $mainBlue;
+        border-bottom-color: $mainBlue;
+    }
+}
+@keyframes slider{
+    0%{
+        left:0%;
+    }
+    5%{
+        left:-51%;
+    }
+    30%{
+        left:-51%;
+    }
+    35%{
+        left:-102%;
+    }
+    60%{
+        left:-102%;
+    }
+    65%{
+        left: -153%;
+    }
+    90%{
+        left:-153%;
+    }
+    94%{
+        left:0%;
+    }
+    100%{
+        left:0%;
+    }
+}
+@keyframes sliderS{
+    0%{
+        left:0%;
+    }
+    5%{
+        left:-102%;
+    }
+    30%{
+        left:-102%;
+    }
+    35%{
+        left:-204%;
+    }
+    60%{
+        left:-204%;
+    }
+    65%{
+        left: -306%;
+    }
+    90%{
+        left:-306%;
+    }
+    94%{
+        left:0%;
+    }
+    100%{
+        left:0%;
+    }
+}

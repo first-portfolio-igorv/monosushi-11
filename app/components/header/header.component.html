@@ -1,0 +1,135 @@
+<header>
+  <div class="logo" [routerLink]="[ '/home']" routerLinkActive="active">
+    <div class="logo__img">
+      <img src="../../../assets/logo.svg" alt="" width="135px" />
+    </div>
+    <div class="logo__img-mobile">
+      <img src="../../../assets/logo-mobile.svg" alt="" width="40px" />
+    </div>
+  </div>
+  <div class="header-info">
+    <div class="product">
+      <div class="product__category" [routerLink]="[ '/discount']" routerLinkActive="active">
+        <img src="../../../assets/nav-img-gift.svg" alt="" height="32px">
+        <span class="product__category__name">Акції</span>
+      </div>
+      <div class="product__category" *ngFor="let info of smalCategoryList" [routerLink]="[ '/product/'+info.name ]"
+        routerLinkActive="active" (click)="categoryNameExport(category)" #category>
+        <img [src]="info.imagePath" alt="" height="32px" />
+        <span class="product__category__name">{{ info.name }}</span>
+      </div>
+    </div>
+    <div class="functional">
+      <div class="functional__menu" (click)="menuToggle()">
+        <div class="line" [ngClass]="{ 'rotate-line': menuLaptop}"></div>
+        <div class="menu-block" [ngClass]="{ 'menu-block-active': menuLaptop }">
+          <ul>
+            <li [routerLink]="[ '/delivery']" routerLinkActive="active">Доставка та оплата</li>
+            <li [routerLink]="[ '/about']" routerLinkActive="active">Про нас</li>
+            <li [routerLink]="[ '/discount']" routerLinkActive="active">Акції</li>
+          </ul>
+        </div>
+      </div>
+      <button class="functional__call-button">
+        <img src="../../../assets/phone.svg" alt="" />
+        <span>МИ ЗАТЕЛЕФОНУЄМО</span>
+      </button>
+      <div class="functional__phone-info">
+        <h3 class="phone">(097) 878 08 37</h3>
+        <span class="work-time">Працюємо з <span class="bold">11:00</span> до
+          <span class="bold">22:30</span></span>
+      </div>
+      <div class="functional__user" [routerLink]="[ '/admin']" routerLinkActive="active" *ngIf="adminCheck">
+        <img src="../../../assets/user.svg" alt="" />
+      </div>
+      <div class="functional__user" [routerLink]="[ '/cabinet']" routerLinkActive="active" *ngIf="userCheck">
+        <img src="../../../assets/user.svg" alt="" />
+      </div>
+      <div class="functional__user" (click)="authActive()" *ngIf="guestCheck">
+        <img src="../../../assets/user.svg" alt="" />
+      </div>
+      <div class="functional__menu-mobile" (click)="menuActive()">
+        <div class="line" [ngClass]="{ 'rotate-line': rotateLine}"></div>
+      </div>
+    </div>
+  </div>
+  <div class="basket" (click)="basketActive()">
+    <div class="basket__img">
+      <img src="../../../assets/basket.svg" alt="" width="38px" />
+      <div class="item-count">{{totalcount}}</div>
+    </div>
+    <span class="total-price">{{totalprice}}</span>
+    <span class="currency">грн</span>
+  </div>
+  <div class="bottom-categories">
+    <div class="product-category" *ngFor="let info of categoryList">
+      <img [src]="info.imagePath" alt="" height="30px" />
+      <span>{{ info.name }}</span>
+    </div>
+  </div>
+  <div class="menu-mobile-block" [ngClass]="{'menu-mobile-block-active': menuMobile}" (click)="menuActive()">
+    <ul>
+      <li><span [routerLink]="[ '/delivery']" routerLinkActive="active">Доставка та оплата</span></li>
+      <li><span [routerLink]="[ '/about']" routerLinkActive="active">Про нас</span></li>
+      <li><span [routerLink]="[ '/discount']" routerLinkActive="active">Акції</span></li>
+    </ul>
+    <div class="phone-info">
+      <h3 class="phone">(097) 878 08 37</h3>
+      <span class="work-time">Працюємо з <span class="bold">11:00</span> до
+        <span class="bold">22:30</span></span>
+    </div>
+    <button class="call-button">
+      <img src="../../../assets/phone.svg" alt="" />
+      <span>МИ ЗАТЕЛЕФОНУЄМО</span>
+    </button>
+  </div>
+</header>
+<div class="auth-block" *ngIf="authBlockActive">
+  <div class="signin-icon" *ngIf="signInCheck">
+    <h1>Вхід в кабінет</h1>
+    <input type="text" name="" id="" class="text email" [(ngModel)]="email" placeholder="Ваш email">
+    <input type="password" name="" id="" class="text password" [(ngModel)]="password" placeholder="Пароль">
+    <input type="button" value="Увійти в кабінет" class="button signin" (click)="signIn()">
+    <h5 class="up" (click)="signUpIcon()">Зареєструватись</h5>
+    <span *ngIf="fail">Ви щось ввели неправильно або такого аккаунту не існує</span>
+</div>
+<div class="signup-icon" *ngIf="!signInCheck">
+  <h1>Зареєструватись</h1>
+  <input type="text" name="" id="" class="text name" [(ngModel)]="name" placeholder="Ім'я">
+  <input type="text" name="" id="" class="text name m" [(ngModel)]="surname" placeholder="Прізвище">
+  <input type="text" name="" id="" class="text email" [(ngModel)]="email" placeholder="Ваш email">
+  <input type="password" name="" id="" class="text password" [(ngModel)]="password" placeholder="Пароль">
+  <input type="button" value="Увійти в кабінет" class="button signin" (click)="signUp()">
+  <h5 class="in" (click)="signInIcon()">Увійти</h5>
+  <span *ngIf="fail">Ви щось ввели неправильно або такий аккаунт вже існує</span>
+
+</div>
+</div>
+<div class="dark" *ngIf="menuMobile || basketCheck || authBlockActive"></div>
+<div class="basket-block" *ngIf="basketCheck">
+  <div class="empty-block" *ngIf="totalcount==0">
+    <div class="img"><img src="../../../assets/cart-empty-img.svg" alt=""></div>
+    <span>Кошик порожній</span>
+    <button [routerLink]="[ '/home']" (click)="basketActive()">ПЕРЕЙТИ ДО КАТАЛОГУ</button>
+  </div>
+  <div class="full-block">
+    <div class="item" *ngFor="let info of basket">
+      <div class="img"><img [src]="info.img" alt=""></div>
+      <div class="name">{{info.name}}</div>
+      <div class="parchase-block">
+        <div class="count-block">
+          <div class="minus" (click)="fCount(info,false)">-</div>
+          <input class="num" [(ngModel)]="info.count">
+          <div class="plus" (click)="fCount(info,true)">+</div>
+        </div>
+        <span class="price"><span>{{info.price}}</span> грн</span>
+        
+        <img src="../../../assets/delete (2).png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="bottom-block">
+    <span>Сума:<span>{{totalprice}}</span> грн</span>
+    <button [routerLink]="[ '/home']">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
+  </div>
+</div>

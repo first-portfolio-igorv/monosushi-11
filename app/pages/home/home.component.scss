@@ -1,0 +1,258 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixin";
+@import "../../shared/styles/variables";
+.home-block{
+    margin-top: 135px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    @include respond(tabletS){
+        margin-top: 100px;
+    }
+    .slider{
+        width: 100%;
+        padding: 0px 10px;
+        overflow: hidden;
+        margin-bottom: 60px;
+        border-radius: 10px;
+        @include respond(tabletS){
+            width: 600px;
+            margin: 0px auto 40px;
+        }
+        @include respond(mobile){
+            width: 100%;
+            margin: 0px 5px 40px 0px;
+            padding: 0px;
+        }
+    .discount-list{
+        max-width: 5000px;
+        display: flex;
+        position: relative;
+        transition: all 0.3s ease;
+        @extend %slider;
+        img{
+            width: 48vw;
+            margin-right: 20px;
+            border-radius: 10px;
+            z-index: -1;
+            @include respond(tablet){
+                width: 47vw;
+            }
+            @include respond(tabletS){
+                width: 100%;
+                margin-right: 12px;
+            }
+            @include respond(mobile){
+                width: 100%;
+                margin-right: 10px;
+            }
+        }
+    }
+    }
+    .description{
+        width: 100%;
+        height: 200px;
+        background-color: $mainBlue;
+        display: flex;
+        padding: 40px 0px;
+        @include respond(tablet){
+            padding: 10px;
+        }
+        @include respond(mobile){
+            display: none;
+        }
+        .last{
+            padding-right: 20px;
+            span{
+                max-width: 250px;
+            }
+        }
+        &__info{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            padding: 0px 50px;
+            @include respond(tablet){
+                padding: 0px;
+                flex-direction: column;
+                align-items: center;
+            }
+            button{
+                width: 175px;
+                height: 56px;
+                padding: 16px 15px;
+                font-size: 16px;
+                font-weight: bold;
+                margin: auto ;
+                border: none;
+                border-radius: 10px;
+                background-color: white;
+                cursor: pointer;
+            }
+            span{
+                margin: auto 18px;
+                font-weight: 400;
+                text-align: center;
+            }
+            .bold{
+                font-weight: bold;
+                margin: 0px;
+            }
+        }
+        &__border{
+            border: 1px solid rgb(231, 231, 231);
+            border-top: 0px;
+            border-bottom: 0px;
+        }
+    }
+    .title{
+        padding-top: 20px;
+        display:flex;
+        justify-content: space-around;
+        margin: 80px 0px;
+        span{
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            border-top: 6px solid $mainBlue;
+            @include respond(mobile){
+                font-size: 32px;
+            }
+        }
+    }
+    .products{
+        width: 100%;
+        .product-category-list{
+            display: flex;
+            .product-category,.product-category-active{
+                width: 14.2%;
+                height: 80px;
+                border: 1px solid lightgray;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                padding-top: 25px;
+            }
+            .product-category-active{
+                border-top: 5px solid $mainBlue;
+                border-bottom: 1px solid transparent;
+                padding-top: 21px;
+            }
+        }
+        .product-list{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .product{
+                width: 355px;
+                height: 460px;
+                border-radius: 10px;
+                border: 2px solid transparent;
+                padding: 0px 10px;
+                margin-top: 30px;
+                @extend %border;
+                .info{
+                    .name{
+                        font-size: 25px;
+                        font-weight: bold;
+                        margin:0px auto 30px;
+                        @extend %focus;
+                    }
+                    .components{
+                        font-size: 18px;
+                        float: left;
+                        max-width: 260px;
+                        height: 70px;
+                    }
+                    .weight{
+                        float: right;
+                        margin-left: 10px;
+                        font-size: 20px;
+                        color: rgb(73, 73, 73);
+                        font-weight: bold;
+                    }
+                }
+                .purchase-block{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    position: relative;
+                    .price{
+                        font-size: 20px;
+                        font-weight: bold;
+                        padding: 10px;
+                        span{
+                            font-weight: 400;
+                        }
+                    }
+                    .count-block{
+                        width: 120px;
+                        height: 55px;
+                        border: 1.5px solid lightgrey;
+                        border-radius: 10px;
+                        display: flex;
+                        justify-content: space-around;
+                        padding-top: 5px;
+                        font-size: 22px;
+                        font-weight: bold;
+                        position: absolute;
+                        left: 50%;
+                        transform: translate(-50%);
+                        .minus,.plus{
+                            width: 30px;
+                            height: 43px;
+                            border-radius: 10px;
+                            @extend %background-color;
+                            transition-duration: 0.2s;
+                            text-align: center;
+                            padding-top: 5px;
+                        }
+                        .num{
+                            margin-top: 5px;
+                        width: 30px;
+                        height: 30px;
+                        font-size: 20px;
+                        font-weight: bold;
+                        padding-left: 7px;
+                        margin-top: 8px;
+                        border:none;
+                        background-color: transparent;
+                        &:focus{
+                            border: none;
+                            outline: none;
+                        }
+                        }
+                    }
+                    .order{
+                        width: 100px;
+                        height: 55px;
+                        background-color: $mainBlue;
+                        border-radius: 10px;
+                        font-weight: bold;
+                        border: 2px solid $mainBlue;
+                        cursor: pointer;
+                        transition-duration: 0.5s;
+                        @extend %focus;
+                        &:hover{
+                            background-color: transparent;
+                        }
+                    }
+                }
+                
+                .img{
+                    width: 100%;
+                    height: 240px;
+                    display: flex;
+                    justify-content: space-between;
+                    @extend %focus;
+                    img {
+                        margin: auto;
+                        width: 100%;
+                        max-height: 240px;
+                        background-size: contain;
+                        @extend %focus;
+                    }
+                }
+            }
+        }
+    }
+}

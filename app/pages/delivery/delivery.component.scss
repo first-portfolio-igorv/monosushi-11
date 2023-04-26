@@ -1,0 +1,219 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixin";
+@import "../../shared/styles/variables";
+main{
+    width: 100%;
+    margin:95px 0px;
+    padding-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    @include respond(tablet){
+        margin: 60px 0px 0px;
+    }
+    .title{
+        padding-top: 20px;
+        display:flex;
+        justify-content: space-around;
+        span{
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            border-top: 6px solid $mainBlue;
+            @include respond(mobile){
+                font-size: 32px;
+            }
+        }
+    }
+    .info{
+        width: 85%;
+        margin: auto;
+        @include respond(tablet){
+            width: 95%;
+        }
+        @include respond(tabletS){
+            width: 85%;
+        }
+        .delivery-info-blocks{
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 60px 0px 40px;
+            @include respond(tablet){
+                margin-top:40px
+            }
+            .block{
+                width: 47%;
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+                @include respond(tablet){
+                    width: 49%;
+                    img{
+                        width: 222px;
+                    }
+                }
+                @include respond(tabletS){
+                    width: 690px;
+                    justify-content: space-around;
+                    margin-top: 20px;
+                    img{
+                        width: 276px;
+                    }
+                }
+                @include respond(mobile){
+                    width: 510px;
+                    justify-content: space-around;
+                    margin-top: 20px;
+                    img{
+                        width: 240px;
+                    }
+                }
+                @include respond(mobileS){
+                    width: 95%;
+                    flex-direction: column;
+                    margin-top: 20px;
+                    img{
+                        margin: auto;
+                        width: 170px;
+                    }
+                }
+                .text{
+                    text-align: center;
+                    font-size: 16px;
+                    line-height: 30px;
+                    @include respond(tabletS){
+                        width:270px;
+                    }
+                    @include respond(mobile){
+                        width:245px;
+                    }
+                    @include respond(mobileS){
+                        margin: auto;
+                    }
+                    .title{
+                        font-size: 26px;
+                    }
+                    p{
+                        margin-top: 10px;
+                    }
+                    .green{
+                        font-weight: bold;
+                        color: $green;
+                    }
+                    .yellow{
+                        font-weight: bold;
+                        color: $yellow;
+                    }
+                }
+            }
+        }
+        .map{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            @include respond(tablet){
+                margin-bottom: 20px;
+            }
+            img{
+                width: 90%;
+                border-radius: 7px;
+                @include respond(tabletS){
+                    width: 100%;
+                }
+            }
+            .description{
+                width: 80%;
+                margin-top: 40px;
+                @include respond(tablet){
+                    margin-top: 20px;
+                }
+                @include respond(tabletS){
+                    width: 90%;
+                }
+                p{
+                    font-size: 18px;
+                    margin-top: 20px;
+                    line-height: 30px;
+                }
+            }
+        }
+        .payment{
+            .title{
+                font-size: 42px;
+                font-weight: bold;
+                @include respond(mobile){
+                   padding-top: 0px;
+                   font-size: 32px;
+                }
+            }
+            .payment-methods{
+                margin: 40px auto 0px;
+                width: 100%;
+                display:flex;
+                flex-wrap: wrap;
+                @include respond(mobile){
+                    margin-top: 0px;
+                }
+                .method{
+                    width: 50%;
+                    display: flex;
+                    padding: 0px 20px 0px 30px;
+                    @include respond(tabletS){
+                        width:100%;
+                        padding-right: 50px;
+                        margin-top: 25px;
+                    }
+                    @include respond(mobileS){
+                        padding: 0px;
+                    }
+                    .img{
+                        width: 63px;
+                        height: 60px;
+                        background-color: $mainBlue;
+                        margin-right: 20px;
+                        border-radius: 10px;
+                        display:flex;
+                        justify-content: space-around;
+                        padding: 0px 10px;
+                        @include respond(mobileS){
+                            margin-right: 10px;
+                        }
+                    }
+                    h2{
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                    p{
+                        margin-top: 15px;
+                        font-size: 16px;
+                        line-height: 25px;
+                        @include respond(mobileS){
+                            margin-top: 2px;
+                        }
+                    }
+                }
+                .border{
+                    border-right: 1.2px solid lightgray;
+                    @include respond(mobile){
+                        border: none;
+                    }
+                }
+                .description{
+                    width: 100%;
+                    margin-top: 40px;
+                    @include respond(mobile){
+                        margin-top: 20px;
+                    }
+                    p{
+                        margin-top: 15px;
+                        line-height: 30px;
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
